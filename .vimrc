@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
+"Plug 'sirver/ultisnips'
 Plug 'mattn/emmet-vim'  
 "Plug 'Valloric/YouCompleteMe' 
 Plug 'jiangmiao/auto-pairs'
@@ -13,7 +14,6 @@ Plug 'wavded/vim-stylus'
 Plug 'tpope/vim-ragtag'
 Plug 'stanangeloff/php.vim'
 Plug 'arnaud-lb/vim-php-namespace'
-Plug 'markwu/vim-laravel4-snippets'
 
 
 " Initialize plugin system
@@ -22,7 +22,7 @@ call plug#end()
 "mappings
 
 map <C-n>  :NERDTreeToggle<CR>
-
+let g:user_emmet_leader_key='<Tab>'
 
 set number
 set expandtab
