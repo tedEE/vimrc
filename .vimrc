@@ -8,7 +8,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'shougo/neocomplete.vim'
-"Plug 'sirver/ultisnips'
+Plug 'sirver/ultisnips'
 Plug 'mattn/emmet-vim'  
 "Plug 'Valloric/YouCompleteMe' 
 Plug 'jiangmiao/auto-pairs'
@@ -16,7 +16,8 @@ Plug 'wavded/vim-stylus'
 Plug 'tpope/vim-ragtag'
 Plug 'stanangeloff/php.vim'
 Plug 'arnaud-lb/vim-php-namespace'
-
+Plug 'tpope/vim-surround'
+Plug 'digitaltoad/vim-jade'
 
 " Initialize plugin system
 call plug#end()
