@@ -9,25 +9,30 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'shougo/neocomplete.vim'
 Plug 'sirver/ultisnips'
-Plug 'mattn/emmet-vim'  
-"Plug 'Valloric/YouCompleteMe' 
+Plug 'mattn/emmet-vim'
+"Plug 'Valloric/YouCompleteMe'
 Plug 'jiangmiao/auto-pairs'
 Plug 'wavded/vim-stylus'
 Plug 'tpope/vim-ragtag'
 Plug 'stanangeloff/php.vim'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'tpope/vim-surround'
+Plug 'chiel92/vim-autoformat'
 Plug 'digitaltoad/vim-jade'
-
+Plug 'posva/vim-vue'
+Plug 'moll/vim-node'
+Plug 'cocopon/iceberg.vim'
 " Initialize plugin system
 call plug#end()
 
 "mappings
 
+au BufWrite * :Autoformat
+
 map <C-n>  :NERDTreeToggle<CR>
 let g:user_emmet_leader_key='<Tab>'
 let g:used_javascript_libs = 'jquery,vue,underscore'
-
+set smartcase
 set number
 set expandtab
 set tabstop=2
@@ -52,14 +57,14 @@ let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
+                        \ 'default' : '',
+                        \ 'vimshell' : $HOME.'/.vimshell_hist',
+                        \ 'scheme' : $HOME.'/.gosh_completions'
+                        \ }
 
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
+        let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
@@ -71,9 +76,9 @@ inoremap <expr><C-l>     neocomplete#complete_common_string()
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? "\<C-y>" : "\<CR>"
+        return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+        " For no inserting <CR> key.
+        "return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -101,7 +106,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
+        let g:neocomplete#sources#omni#input_patterns = {}
 endif
 "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
